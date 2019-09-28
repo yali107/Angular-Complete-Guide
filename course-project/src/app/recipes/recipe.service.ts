@@ -10,26 +10,32 @@ import { Subject } from 'rxjs';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'A test recipe',
-      'This is simply a test',
-      'https://assets.marthastewart.com/styles/wmax-750/d39/crepes-recipe-0419-9085-lw-076-0746463d/' +
-      'crepes-recipe-0419-9085-lw-076-0746463d_horiz.jpg?itok=hz2JsqRE',
-      [new Ingredient('Bread', 2), new Ingredient('Cheese', 3)]
-    ),
-    new Recipe(
-      'A test recipe 2',
-      'This is simply a test 2',
-      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_9960_720.jpg',
-      [new Ingredient('Egg', 3), new Ingredient('Apple', 5), new Ingredient('Banana', 2)]
-    ),
-  ];
-
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'A test recipe',
+  //     'This is simply a test',
+  //     'https://assets.marthastewart.com/styles/wmax-750/d39/crepes-recipe-0419-9085-lw-076-0746463d/' +
+  //     'crepes-recipe-0419-9085-lw-076-0746463d_horiz.jpg?itok=hz2JsqRE',
+  //     [new Ingredient('Bread', 2), new Ingredient('Cheese', 3)]
+  //   ),
+  //   new Recipe(
+  //     'A test recipe 2',
+  //     'This is simply a test 2',
+  //     'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_9960_720.jpg',
+  //     [new Ingredient('Egg', 3), new Ingredient('Apple', 5), new Ingredient('Banana', 2)]
+  //   ),
+  // ];
+  private recipes: Recipe[] = [];
+  
   constructor() { }
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   getRecipe(index: number) {
