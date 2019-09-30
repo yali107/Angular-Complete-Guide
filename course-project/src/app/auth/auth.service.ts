@@ -21,7 +21,7 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyABJc2jz5bzuTDpXEg-DeRCj7LZgNuaaMA',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]',
       {
         email: email,
         password: password,
