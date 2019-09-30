@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+import { ApiKey } from './auth.api-key';
+
 interface AuthResponseData {
   kind: string;
   idToken: string;
@@ -21,7 +23,7 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + ApiKey.firebaseApiKey,
       {
         email: email,
         password: password,
