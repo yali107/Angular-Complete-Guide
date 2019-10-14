@@ -45,4 +45,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Firebase Files
+.firebaserc
+/.firebase
+firebase.json
+
 auth.api-key.ts
