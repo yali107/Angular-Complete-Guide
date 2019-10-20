@@ -27,25 +27,31 @@ export function authReducer(state = initialState, action: AuthAuctions.AuthAucti
                 authError: null,
                 user: user,
                 loading: false
-            }
+            };
         case AuthAuctions.LOGOUT:
             return {
                 ...state,
                 user: null
-            }
+            };
         case AuthAuctions.LOGIN_START:
+        case AuthAuctions.SIGNUP_START:
             return {
                 ...state,
                 authError: null,
                 loading: true
-            }
+            };
         case AuthAuctions.AUTHENTICATE_FAIL:
             return {
                 ...state,
                 user: null,
                 authError: action.payload,
                 loading: false
-            }
+            };
+        case AuthAuctions.CLEAR_ERROR:
+            return {
+                ...state,
+                authError: null
+            };
         default:
             return state;
     }
