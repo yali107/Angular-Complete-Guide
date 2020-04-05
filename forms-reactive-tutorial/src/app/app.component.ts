@@ -23,13 +23,13 @@ export class AppComponent implements OnInit {
     });
 
     // reacting to value or status changes
-    this.signupForm.valueChanges.subscribe(
-      (value) => console.log(value)
-    );
+    // this.signupForm.valueChanges.subscribe(
+    //   (value) => console.log(value)
+    // );
 
-    this.signupForm.statusChanges.subscribe(
-      (status) => console.log(status)
-    );
+    // this.signupForm.statusChanges.subscribe(
+    //   (status) => console.log(status)
+    // );
 
     // set and patch form values
     this.signupForm.setValue({
@@ -51,7 +51,8 @@ export class AppComponent implements OnInit {
   onSubmit() {
     console.log(this.signupForm);
 
-    this.signupForm.reset({'gender': 'female'});
+
+    // this.signupForm.reset({'gender': 'female'});
   }
 
   onAddHobby() {
@@ -62,6 +63,10 @@ export class AppComponent implements OnInit {
   get controls() {
     return (this.signupForm.get('hobbies') as FormArray).controls;
   }
+
+  // getControls() {
+  //   return (<FormArray>this.signupForm.get('hobbies')).controls;
+  // }
 
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
     if (this.forbiddenUsernamees.indexOf(control.value) !== -1) {
